@@ -2,6 +2,7 @@ analyzer:
   strong-mode: true
   exclude:
     - test/**.dart
+    - test/unit/**.dart
     - example/**.dart
 linter:
   rules:
