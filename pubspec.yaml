@@ -1,0 +1,13 @@
+name: sensor
+description: Harper sensors
+version: 0.0.1
+author: Ji Young Lee & Ray King
+
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+
+dependencies:
+  path: any
+
+dev_dependencies:
+  test: '>=0.12.0 <0.13.0'

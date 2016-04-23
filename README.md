@@ -1,19 +1,5 @@
-# sensor
+# Sensor
 
-A library for Dart developers. It is awesome.
+Library to build harper sensors.
 
 ## Usage
-
-A simple usage example:
-
-    import 'package:sensor/sensor.dart';
-
-    main() {
-      var awesome = new Awesome();
-    }
-
-## Features and bugs
-
-Please file feature requests and bugs at the [issue tracker][tracker].
-
-[tracker]: http://example.com/issues/replaceme
