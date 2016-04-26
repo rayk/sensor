@@ -1,9 +1,14 @@
 analyzer:
-  strong-mode: true
+  strong-mode: false
   exclude:
+    - test/data/**
     - test/**.dart
-    - test/unit/**.dart
-    - example/**.dart
+    - test/**/*.dart
+    - test/unit/*.dart
+    - test/unit/*_test.dart
+    - test/unit/vectorisation_test.dart
+    - example/*.dart
+    - example/**/*.dart
 linter:
   rules:
     - always_declare_return_types

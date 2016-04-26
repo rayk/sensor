@@ -4,6 +4,8 @@
 import 'package:sensor/sensor.dart';
 
 main() {
-  var awesome = new Awesome();
-  print('awesome: ${awesome.isAwesome}');
+
+  Connector fbConnector = fireBaseConnector(pathToDirectory)
+  Sensor gsrSensor = new Sensor(connector, path);
+
 }
