@@ -23,3 +23,4 @@ doc/api/
 *.iws
 
 # Atom Stuff
+.atom/
