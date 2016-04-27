@@ -8,10 +8,9 @@
 library sensor;
 
 import 'package:sensor/src/connectors/connectors.dart';
-import 'package:sensor/src/sensor_config.dart';
+import 'package:sensor/src/configuration/sensor_config.dart';
 
 export 'src/sensor_core.dart';
 export 'src/connectors/connectors.dart';
-export 'src/sensor_config.dart' show SensorSpec, SensorType, SensorSpecFinder, sensorSpecFinder, Device;
-
-// TODO: Export any libraries intended for clients of this package.
+export 'package:sensor/src/configuration/sensor_config.dart'
+    show SensorSpec, SensorType, SensorSpecFinder, loadSensorSpec, Device;
