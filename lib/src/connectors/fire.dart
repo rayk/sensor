@@ -1,13 +1,5 @@
 /// Connector for firebase.
-library connector_fire_base;
-
-import 'dart:async';
-import 'dart:io';
-
-
-import 'package:sensor/src/types/connector_types.dart';
-import 'package:path/path.dart' as p;
-import 'package:firebase_rest/firebase_rest.dart';
+part of connectors;
 
 Future<Connection> fireBaseConnector(List<String> pathToDirectory) async {
   p.Context ctx = new p.Context(style: p.Style.url);
@@ -21,9 +13,8 @@ Future<Connection> fireBaseConnector(List<String> pathToDirectory) async {
   final Firebase firebase = new Firebase(fbResource, auth: secertKey);
   StreamController sc = new StreamController();
 
-  Stream connection(){
-
-    firebase.child(source).get().then((DataSnapshot snap){
+  Stream connection() {
+    firebase.child(source).get().then((DataSnapshot snap) {
       sc.sink.add(snap.val);
     });
 
@@ -31,6 +22,4 @@ Future<Connection> fireBaseConnector(List<String> pathToDirectory) async {
   }
 
   return connection;
-
-
 }

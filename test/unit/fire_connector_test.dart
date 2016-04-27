@@ -4,9 +4,7 @@ library unit_test_filio;
 
 import 'dart:async';
 import 'package:test/test.dart';
-import 'package:sensor/src/connectors/fire.dart';
-import 'package:sensor/src/connectors/connector_types.dart';
-
+import 'package:sensor/src/connectors/connectors.dart';
 
 void main(){
 

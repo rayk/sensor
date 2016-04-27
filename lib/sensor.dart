@@ -7,12 +7,11 @@
 /// function that define a sensor.
 library sensor;
 
-import 'package:sensor/src/types/connector_types.dart';
-import 'package:sensor/src/types/biosignal.dart';
+import 'package:sensor/src/connectors/connectors.dart';
+import 'package:sensor/src/sensor_config.dart';
 
 export 'src/sensor_core.dart';
-export 'package:sensor/src/types/connector_types.dart';
-export 'package:sensor/src/connectors/fire.dart';
-export 'package:sensor/src/types/biosignal.dart';
+export 'src/connectors/connectors.dart';
+export 'src/sensor_config.dart' show SensorSpec, SensorType, SensorSpecFinder, sensorSpecFinder, Device;
 
 // TODO: Export any libraries intended for clients of this package.

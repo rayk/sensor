@@ -4,8 +4,7 @@ library unit_test_vectorise;
 
 import 'dart:async';
 import 'package:test/test.dart';
-import 'package:sensor/src/connectors/filio.dart';
-import 'package:sensor/src/connectors/connector_types.dart';
+import 'package:sensor/src/connectors/connectors.dart';
 import 'package:sensor/src/tranformers/transformers.dart';
 
 /// Unit test of Vectorisation of unknown stream according to pattern.

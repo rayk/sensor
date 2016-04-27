@@ -1,52 +1,92 @@
 library sensor.api;
 
 import 'dart:async';
+import 'dart:developer';
+
 import 'package:sensor/sensor.dart';
-import 'package:sensor/src/types/connector_types.dart';
+import 'package:sensor/src/connectors/connectors.dart';
+import 'package:sensor/src/sensor_config.dart';
+import 'package:sensor/src/sensor_signal.dart';
+
 
 /// A sensor collects datums from a single source. The collected data is
 /// not homegenous and nessary part of the same data demension. It just happens
 /// to be from the same phyiscal or logical sensor.
 
 /// Namespace where all the functions of a sensor are assembleed.
-class Sensor{
-  Connector connector;
-  Connection connection;
-  List<String> path;
-  Map signalDescriptor;
-  Map outputDescriptor;
-  ///Constructor for a sensor specifiing the functions ti be used.
-  Sensor(this.connector,this.path, this.signalDescriptor, this.outputDescriptor){
+/// Takes a type of [Connector] to connect data projection in path, a [SignalDescriptor]
+/// which describes the data projection and a SensorSignalFormat that describes
+/// what the array would like return on the stream that is also provided.
+
+class Sensor {
+  bool _isRunning = false;
+  DateTime _lastemmission;
+  final Connection _connection;
+  final DateTime _sensorStarted = new DateTime.now();
+  final SensorSpec _sensorSpecification;
+  final Sink _distination;
+  int _emmissionCounter = 0;
+  Stream _dataProjection;
+  StreamSubscription _subs;
+
+  ///Constructor for a sensor passing in it's complete configuration.
+  Sensor(this._connection, this._sensorSpecification, this._distination) {
+    _dataProjection = _connection();
+  }
+
+  /// Premently kills this instance of the sensor.
+  void kill() {
+    if(_isRunning){
+      _subs.cancel();
+      _distination.close();
+    }
+  }
+
+  /// Pause the sensor from detecting.
+  void pause() {
 
   }
 
-  Future<Stream<String>>Sense()async{
-    connection = await connector(path);
-    Stream<String> raw = connection();
-    return raw;
+  /// Start or restart after a pause the sensor detecting for the defined data projection.
+  bool start(){
+    if(!_isRunning){
+      _isRunning = true;
+      _subs = _dataProjection.listen((detection){
+
+      });
+    }
+    return _isRunning;
   }
 
-  /// Returns the core signal element of an observation.
-  /// Source is the incoming Linked hash Map, the destination specifics what it
-  /// could like extracted from the source.
-  Map _extractSignal(Map source, Map coreSignalDescription){
+  /// Process what ever has been received and does it's best to form
+  /// a valid SensorSingal.
+  Map _process(detection){
+    Map sensorSignal = new Map();
+    List keyList = _sensorSpecification();
+    assert(keyList.isNotEmpty);
 
-    Map result = new Map();
+    Function extractor = _sensorSpecification(key:Extract.strategy);
 
-    List attributes = new List.from(coreSignalDescription.keys);
-    List<Function> valueFunctions = new List.from(coreSignalDescription.values);
-    assert(attributes.length == valueFunctions.length);
+    sensorSignal = extractor(detection, keyList, _sensorSpecification);
 
-    for (int i=0; valueFunctions.length < i; i++){
-      Function val = valueFunctions[i];
-      result[attributes[i]] = val();
+    if(sensorSignal.containsValue(null)){
+      log('Bad record..');
+    } else {
+      sensorSignal[SensorSignal.datetime] = new DateTime.now();
+      sensorSignal[SensorSignal.sequence] = _emmissionCounter;
+      sensorSignal[SensorSignal.last] = _lastemmission;
+      sensorSignal[SensorSignal.rate] = _emmissionCounter / _sensorStarted.difference(new DateTime.now()).inMilliseconds;
+      _dispatch(sensorSignal);
     }
 
-    return result;
-  }
-
-  Map _prepareReading (){
 
   }
+
+  void _dispatch(Map signal){
+    _distination.add(signal);
+    _lastemmission = new DateTime.now();
+    _emmissionCounter++;
+  }
+
 
 }

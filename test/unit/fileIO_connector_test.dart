@@ -4,8 +4,7 @@ library unit_test_filio;
 
 import 'dart:async';
 import 'package:test/test.dart';
-import 'package:sensor/src/connectors/filio.dart';
-import 'package:sensor/src/connectors/connector_types.dart';
+import 'package:sensor/src/connectors/connectors.dart';
 
 /// Unit test of the connector.
 void main() {

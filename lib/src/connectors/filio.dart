@@ -1,14 +1,6 @@
 /// Connector for a OS directory in a path.
-library connector_io_directory;
+part of connectors;
 
-import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:async/async.dart' show StreamGroup;
-import 'package:path/path.dart' as p;
-
-import 'connector_types.dart';
 
 /// Returns a [Connection] to a File System Directory that must already exist,
 /// must contain files in UTF-8 encoding.
