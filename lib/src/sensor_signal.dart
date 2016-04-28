@@ -2,7 +2,6 @@
 library sensor_signal;
 
 
-
 /// Highest level enums for the sensor signal
 enum SensorSignal{
   /// Datetime this signal was prepared for the array. Not the detected time
@@ -11,8 +10,10 @@ enum SensorSignal{
   sequence,
   /// Specific date time the last signal was sent from this sensor.
   last,
-  /// what is the current rate at which this signal is being emmitting signals.
+  /// what is the current rate at which this signal is being emitting signals.
   rate,
-  /// An optional identifier provided by the arrary that linked to emitted signal.
+  /// An optional identifier provided by the array that linked to emitted signal.
   subject,
+  ///
+  type,
 }

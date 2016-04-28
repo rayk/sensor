@@ -46,40 +46,28 @@ SensorSpec loadSensorSpec(Device device, SensorType sensor) {
   return get;
 }
 
-Function signalFromList() {
+/// Used when the connector outs a List;
+Map signalFromList(
+    List detection, List requiredAttributes, Function mapLookup) {
   Map result = new Map();
-
-  Map extract(List detection, List requiredAttributes, Function mapLookup) {
-    for (var attribs in requiredAttributes) {
-      var one = mapLookup(key: attribs);
-      if (one is List<int>) {
-        var value = detection[one.first];
-        result[attribs] = value;
-      } else {
-        result[attribs] = one;
-      }
-    }
-    return result;
+  for (var a in requiredAttributes) {
+    assert(a != null);
+    var target = mapLookup(key: a);
+    assert(target != null);
+    result[a] = target is List<int> ? detection[target.first] : target;
   }
-  return extract;
+  return result;
 }
 
-Function signalFromMap() {
+/// Used when the connector outputs a Map;
+Map signalFromMap(Map detection, List requiredAttributes, Function mapLookUp) {
   Map result = new Map();
-
-  Map extract(Map detection, List requiredAttributes, Function mapLookUp) {
-    for (var attribs in requiredAttributes) {
-      var one = mapLookUp(key: attribs);
-      if (one is String) {
-        var value = detection[one];
-        result[attribs] = value;
-      } else {
-        result[attribs] = one;
-      }
-    }
-    return result;
+  for (var a in requiredAttributes) {
+    assert(a != null);
+    var target = mapLookUp(key: a);
+    result[a] = target is String ? detection[target] : target;
   }
-  return extract;
+  return result;
 }
 
 /// Specific keys for a particular sensor configuration.

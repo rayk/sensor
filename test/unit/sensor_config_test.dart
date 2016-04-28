@@ -55,8 +55,7 @@ void main() {
       Map detect = {'timestamp':1239420397, 'resistence': 892374, 'happy':true};
       SensorSpec gsrSensor = loadSensorSpec(Device.msBand2Fire, SensorType.galvanic);
       List keys = gsrSensor();
-      Function enclose = signalFromMap();
-      Map result = enclose(detect, keys, gsrSensor);
+      Map result = signalFromMap(detect, keys, gsrSensor);
       expect(result.isNotEmpty, isTrue);
       for (var key in keys){
         expect(result[key], isNotNull);
@@ -64,13 +63,12 @@ void main() {
       expect(result['happy'], isNull);
     });
 
-    /// Nulling at this level and the sensor will have have this as a bad reading.
+    /// Null at this level and the sensor will have mark this as a bad reading.
     test("Should null the value if it is not in the detection",(){
       Map detect = {'date':1239420397, 'resistence': 892374, 'happy':true};
       SensorSpec gsrSensor = loadSensorSpec(Device.msBand2Fire, SensorType.galvanic);
       List keys = gsrSensor();
-      Function enclose = signalFromMap();
-      Map result = enclose(detect, keys, gsrSensor);
+      Map result = signalFromMap(detect, keys, gsrSensor);
       expect(result.isNotEmpty, isTrue);
       expect(result[Gsr.datetime], isNull);
       expect(result['happy'], isNull);
@@ -84,8 +82,7 @@ void main() {
       List detect = [178239, 'Not thisone', 'butthisone', false, 'leaveit', 999923];
       SensorSpec gsrSensor = loadSensorSpec(Device.msBand2TestFake, SensorType.galvanic);
       List keys = gsrSensor();
-      Function enclose = signalFromList();
-      Map result = enclose(detect, keys, gsrSensor);
+      Map result = signalFromList(detect, keys, gsrSensor);
       expect(result.isNotEmpty, isTrue);
       expect(result[Gsr.datetime], isNotNull);
       expect(result[Gsr.datetime], equals(178239));

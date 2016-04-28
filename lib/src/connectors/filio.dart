@@ -19,7 +19,7 @@ Future<Connection> ioDirConnector(List<String> pathToDirectory) async {
       List<File> df = new List.from(fse);
       if(df.length == 0) {throw new StateError('$targetPath - $erMsg01');}
 
-      // Enclourse merges together the streams and delivers the
+      // Enclosure merges together the streams and delivers the
       // contains of the files.
       //TODO: Need work out a better way then the cast from UTF8.
       Stream connection() {

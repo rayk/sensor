@@ -1,42 +1,45 @@
 import 'package:test/test.dart';
-
+import 'dart:async';
 import 'package:sensor/sensor.dart';
 
-/// Sensort Intergration test
-void main(){
+/// Sensor Integration Test
+main()async{
 
   /// Input Parameters
   ///
   /// Where do we connect to?
-  List firebaseDirectory = ['https://banddata.firebaseio.com', 'JL', 'gsr', 'XuHBWOngUKU0w7yKiueK3SqMd5bm6qhUumi70mlr'];
+  List fireBaseDirectory = ['https://banddata.firebaseio.com', 'JL', 'gsr', 'XuHBWOngUKU0w7yKiueK3SqMd5bm6qhUumi70mlr'];
+  Connection fbConnection = await fireBaseConnector(fireBaseDirectory);
+  SensorSpec gsrSensor = loadSensorSpec(Device.msBand2Fire, SensorType.galvanic);
+  StreamController sc = new StreamController();
 
-  /// Details about the sensor.
-  Map sensorDetails = {
-      SensorKey.type: SensorType.skin,
-      SensorKey.period: 5,
-      SensorKey.frequency: SIUnits.hertz,
-      SensorKey.device: Device.msband2,
-      SensorKey.subject: 'JL',
-  }
-
-  Map sensorOutput = {
-
-  }
-
-
-  group('Define a new sensor', (){
-    test('Should return a sensor,', (){
-      Sensor gsrTestSensor = new Sensor(fireBaseConnector, firebaseDirectory);
-
+  group('New Sensor:', (){
+    test('Should return a sensor', (){
+      Sensor gsrTestSensor = new Sensor(fbConnection,gsrSensor,sc.sink);
+      expect(gsrTestSensor, isNotNull);
     });
+
+    test("Should return true when sensor start.",(){
+      Sensor gsrTestSensor = new Sensor(fbConnection,gsrSensor,sc.sink);
+      expect(gsrTestSensor.start(), isTrue);
+    });
+
+    test("Should return sensor signal on provided streams.",()async{
+      Connection fbCon2 = await fireBaseConnector(fireBaseDirectory);
+      SensorSpec gsrSensor = loadSensorSpec(Device.msBand2Fire, SensorType.galvanic);
+      StreamController testStream = new StreamController();
+      Sensor gsrTestSensor = new Sensor(fbCon2,gsrSensor,testStream.sink, debug: false);
+      testStream.stream.listen(expectAsync((Map sig){
+        expect(sig[SensorSignal.datetime], isNotNull, reason:'Date:${sig.toString()}');
+        expect(sig[SensorSignal.sequence], isNotNull, reason:'Seq:${sig.toString()}');
+        expect(sig[SensorSignal.last], isNotNull, reason:'Last:${sig.toString()}');
+        expect(sig[SensorSignal.rate], isNotNull, reason:'Rate:${sig.toString()}');
+      }, max: 5000));
+
+      gsrTestSensor.start();
+    });
+
   });
 
-  group('Enable the Sensor',(){
-
-  });
-
-  group('Verify Sensor Output Readings',(){
-
-  });
 
 }

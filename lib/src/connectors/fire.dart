@@ -15,7 +15,13 @@ Future<Connection> fireBaseConnector(List<String> pathToDirectory) async {
 
   Stream connection() {
     firebase.child(source).get().then((DataSnapshot snap) {
-      sc.sink.add(snap.val);
+      Map sig = snap.val;
+      Iterable keys = sig.keys;
+
+      for (var key in keys){
+        sc.sink.add(sig[key]);
+      }
+
     });
 
     return sc.stream;

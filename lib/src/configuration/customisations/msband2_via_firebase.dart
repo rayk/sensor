@@ -12,7 +12,7 @@ const LookupMap gsrOnMsBand2ViaFireBase = const LookupMap(const [
   Gsr.datetime,
   "timestamp",
   Gsr.resistance,
-  "resistence",
+  "resistance",
   Gsr.units,
   SiUnits.ohmKilo,
   Gsr.frequency,

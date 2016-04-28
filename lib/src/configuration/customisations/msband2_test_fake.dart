@@ -1,8 +1,7 @@
 part of sensor_configuration;
 
-
 /// Test Configuration.
-const LookupMap smband2GsrST = const LookupMap(const [
+const LookupMap gsrOnMsBand2FakeTest = const LookupMap(const [
   Gsr.datetime,
   const [0],
   Gsr.resistance,
@@ -17,5 +16,5 @@ const LookupMap smband2GsrST = const LookupMap(const [
   signalFromList,
 ]);
 
-const LookupMap msBand2FakeSensorManifest = const LookupMap(
-    const [], const [const LookupMap.pair(SensorType.galvanic, smband2GsrST)]);
+const LookupMap msBand2FakeSensorManifest = const LookupMap(const [],
+    const [const LookupMap.pair(SensorType.galvanic, gsrOnMsBand2FakeTest)]);

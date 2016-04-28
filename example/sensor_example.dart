@@ -1,25 +1,28 @@
-// Copyright (c) 2016, <your name>. All rights reserved. Use of this source code
-// is governed by a BSD-style license that can be found in the LICENSE file.
 
 import 'dart:async';
 
 import 'package:sensor/sensor.dart';
 
+/// Example of Building a Sensor.
 main() async {
+
   StreamController sc = new StreamController();
-  Connection fbConnection = await fireBaseConnector(["https://banddata.firebaseio.com", 'JL', 'gsr', 'XuHBWOngUKU0w7yKiueK3SqMd5bm6qhUumi70mlr']);
+  Stream gsrSensorReading = sc.stream;
+  Connection fbConnection = await fireBaseConnector([
+    "https://banddata.firebaseio.com",
+    'JL',
+    'gsr',
+    'XuHBWOngUKU0w7yKiueK3SqMd5bm6qhUumi70mlr'
+  ]);
+
   SensorSpec gsrSensor =
       loadSensorSpec(Device.msBand2Fire, SensorType.galvanic);
 
-  sc.stream.listen((var res){
-    print(res);
-  });
+  Sensor gsrOnMsBand2FireBase =
+      new Sensor(fbConnection, gsrSensor, sc.sink, debug: false);
 
-  Sensor gsrOnMsBand2Firebase =
-      new Sensor(fbConnection, gsrSensor, sc.sink);
-
-  gsrOnMsBand2Firebase.start();
-
-
+  if (gsrOnMsBand2FireBase.start()) {
+    gsrSensorReading.listen((Map res) => print(res.toString()));
+  }
 
 }
