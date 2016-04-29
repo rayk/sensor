@@ -17,6 +17,7 @@ main() async {
 
   SensorSpec gsrSensor =
       loadSensorSpec(Device.msBand2Fire, SensorType.galvanic);
+  assert (gsrSensor is Function);
 
   Sensor gsrOnMsBand2FireBase =
       new Sensor(fbConnection, gsrSensor, sc.sink, debug: false);

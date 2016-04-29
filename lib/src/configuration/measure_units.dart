@@ -7,6 +7,9 @@ enum SiUnits {
   /// Beats Per Minute
   beatsPerMinute,
 
+  /// Binary used when a measure of on or Off
+  binary,
+
   ///
   calorie,
 
@@ -16,10 +19,16 @@ enum SiUnits {
   /// Temperature
   celsius,
 
+  /// Measure unit of noise.
+  decibel,
+
+  /// Measure of velocity
+  degreesPerSec,
+
   /// Measure unit of Frequency Units
   hertz,
 
-  /// Measure unit of Frequency at a multiple factor of 10 to the thrid.
+  /// Measure unit of Frequency at a multiple factor of 10 to the 3rd.
   hertzKilo,
 
   /// Measure unit of Frequency at a multiple factor of 10 to the sixth.
@@ -46,7 +55,10 @@ enum SiUnits {
   /// Measure unit of Length at a fraction factor of 10 to the minus two.
   meterscenti,
 
-  /// Measure unit of Length at a multiple factor of 10 to the thrid.
+  /// Unit measure of acceleration
+  centimetersPerMinute,
+
+  /// Measure unit of Length at a multiple factor of 10 to the 3rd.
   metersKilo,
 
   /// Measure unit of electrical resistance.
@@ -64,7 +76,7 @@ enum SiUnits {
   /// Measure unit of pressure at a multiple factor of 10 to the second.
   pascalHecto,
 
-  ///
+  /// Unit of Angular Measure
   radian,
 
   /// Unit measure of time.
@@ -81,4 +93,7 @@ enum SiUnits {
 
   /// Unit measure of power to a fraction factor of 10 to the minus three.
   wattsMilli,
+
+  /// Unit of measure of UV light.
+  waveLength,
 }

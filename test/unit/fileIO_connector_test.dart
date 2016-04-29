@@ -1,5 +1,5 @@
 @TestOn('vm')
-@Timeout(const Duration(seconds: 5))
+@Timeout(const Duration(seconds: 10))
 library unit_test_filio;
 
 import 'dart:async';
@@ -10,7 +10,7 @@ import 'package:sensor/src/connectors/connectors.dart';
 void main() {
   List<String> validPath = ['test', 'data', 'light'];
   List<String> validPathNoData = ['test', 'data', 'empty'];
-  List<String> validWithItemCounnt = ['test', 'data', 'known_count'];//205
+  List<String> validWithItemCount = ['test', 'data', 'known_count'];//204
   List<String> nonExistentPath = ['test', 'data', 'does_not_exist'];
   List<String> validFileNotDirectory = ['test', 'data', 'badStubFile.csv'];
 
@@ -36,13 +36,13 @@ void main() {
 
   group('Provides a string of sensor data', () {
     test("Should provide a stream of list given vaild input", () async {
-      Connection lightSensor = await ioDirConnector(validWithItemCounnt);
+      Connection lightSensor = await ioDirConnector(validWithItemCount);
       Stream sensorData = lightSensor();
       sensorData.listen(expectAsync((var datum) {
           expect(datum is String, isTrue);
           expect(datum, isNotEmpty);
           print(datum);
-      }, count: 205));
+      }, count: 204));
     });
   });
 }

@@ -1,21 +1,23 @@
 part of sensor_configuration;
 
-/// Enumeration of the devices which host sensors.
-///
-
+/// All the devices which host Sensors.
+/// Included here are fake test devices.
 enum Device {
   /// Microsoft Band 2 Live Stream.
   msband2Live,
 
-  /// Microsoft Band 2 FireBase Stream.
+  /// Microsoft Band 2 FireBase Source.
   msBand2Fire,
 
   /// Nexus 6 Live Stream
   nexus6Live,
 
-  /// Nexus 6 FireBase Stream.
+  /// Nexus 6 FireBase Source.
   nexus6Fire,
 
-  /// Testing Banding
-  msBand2TestFake,
+  /// Fake Test Band Configured as FireBase outputting Maps.
+  msBand2TestFakeMap,
+
+  /// Fake Test Band Configured as FireBase outputting List.
+  msBand2TestFakeList,
 }

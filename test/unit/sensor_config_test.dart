@@ -13,7 +13,7 @@ void main() {
       var sensor = device[SensorType.galvanic];
       var gsrDateTimeKey = sensor[Gsr.datetime];
       expect(gsrDateTimeKey, equals('timestamp'));
-      expect(sensor[Gsr.resistance], equals('resistence'));
+      expect(sensor[Gsr.resistance], equals('resistance'));
       expect(sensor[Gsr.units], equals(SiUnits.ohmKilo));
     });
   });
@@ -49,46 +49,5 @@ void main() {
     //});
   });
 
-  group('Signal from Map function',(){
 
-    test('Should extract only requested keys extracting ',(){
-      Map detect = {'timestamp':1239420397, 'resistence': 892374, 'happy':true};
-      SensorSpec gsrSensor = loadSensorSpec(Device.msBand2Fire, SensorType.galvanic);
-      List keys = gsrSensor();
-      Map result = signalFromMap(detect, keys, gsrSensor);
-      expect(result.isNotEmpty, isTrue);
-      for (var key in keys){
-        expect(result[key], isNotNull);
-      }
-      expect(result['happy'], isNull);
-    });
-
-    /// Null at this level and the sensor will have mark this as a bad reading.
-    test("Should null the value if it is not in the detection",(){
-      Map detect = {'date':1239420397, 'resistence': 892374, 'happy':true};
-      SensorSpec gsrSensor = loadSensorSpec(Device.msBand2Fire, SensorType.galvanic);
-      List keys = gsrSensor();
-      Map result = signalFromMap(detect, keys, gsrSensor);
-      expect(result.isNotEmpty, isTrue);
-      expect(result[Gsr.datetime], isNull);
-      expect(result['happy'], isNull);
-    });
-
-  });
-
-
-  group("Signal from List Function",(){
-    test("Should extract the required keys",(){
-      List detect = [178239, 'Not thisone', 'butthisone', false, 'leaveit', 999923];
-      SensorSpec gsrSensor = loadSensorSpec(Device.msBand2TestFake, SensorType.galvanic);
-      List keys = gsrSensor();
-      Map result = signalFromList(detect, keys, gsrSensor);
-      expect(result.isNotEmpty, isTrue);
-      expect(result[Gsr.datetime], isNotNull);
-      expect(result[Gsr.datetime], equals(178239));
-      expect(result[Gsr.resistance], equals(999923));
-    });
-
-
-  });
 }

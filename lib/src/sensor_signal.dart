@@ -14,6 +14,50 @@ enum SensorSignal{
   rate,
   /// An optional identifier provided by the array that linked to emitted signal.
   subject,
-  ///
+  /// Type of sensor signal, align to the signal type inventory
   type,
 }
+
+/// SignalProtocol are used to inform the listener about sensor
+/// operational events. These are generic across all sensor type
+/// and always comprise a pair of values. The first one the key is
+/// is of type [SignalProtocol] and the second the value of type [ProtoValue].
+enum SignalProtocol{
+  /// Message Type
+  type,
+  /// Priority of message
+  priority,
+  /// Subject of the message
+  subject,
+}
+
+/// The value element of a protocol message.
+enum ProtoValue{
+  /// Indicates this is a Protocol Signal.
+  protocolSignal,
+
+  /// Sensor Started Event
+  sensorStarted,
+
+  /// Sensor Paused Event
+  sensorPaused,
+
+  /// Sensor has been killed.
+  sensorTerminated,
+
+  /// Lowest level priority
+  informational,
+
+  /// Mid level priority, unusual no operational integrity threat.
+  abnormally,
+
+  /// Highest level priority
+  investigate,
+}
+
+/// Short hand message indicating the sensor has started.
+Map protoMsgSensorStart ={
+  SignalProtocol.type:ProtoValue.protocolSignal,
+  SignalProtocol.priority:ProtoValue.informational,
+  SignalProtocol.subject:ProtoValue.sensorStarted,
+};
