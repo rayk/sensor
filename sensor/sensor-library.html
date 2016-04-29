@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="sensor library API docs, for the Dart programming language.">
+  <title>sensor library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="..">
+
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:500,400italic,300,400' type='text/css'>
+  <link rel="stylesheet" href="static-assets/prettify.css">
+  <link rel="stylesheet" href="static-assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+  <!-- Do not remove placeholder -->
+  <!-- Header Placeholder -->
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header class="container-fluid" id="title">
+  <nav class="navbar navbar-fixed-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 contents">
+          <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+          <ol class="breadcrumbs gt-separated hidden-xs">
+            <li><a href="index.html">sensor</a></li>
+            <li class="self-crumb">sensor</li>
+          </ol>
+          <div class="self-name">sensor</div>
+          <form class="search navbar-right" role="search">
+            <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+          </form>
+        </div> <!-- /col -->
+      </div> <!-- /row -->
+    </div> <!-- /container -->
+  </nav>
+
+  <div class="container masthead">
+    <div class="row">
+      <div class="col-sm-12 contents">
+        <ol class="breadcrumbs gt-separated visible-xs">
+          <li><a href="index.html">sensor</a></li>
+          <li class="self-crumb">sensor</li>
+        </ol>
+        <div class="title-description">
+          <h1 class="title">
+            <span class="kind">library</span> sensor
+          </h1>
+        </div>
+        <ul class="subnav">
+          <li><a href="sensor/sensor-library.html#typedefs">Typedefs</a></li>
+          <li><a href="sensor/sensor-library.html#properties">Properties</a></li>
+          <li><a href="sensor/sensor-library.html#functions">Functions</a></li>
+          <li><a href="sensor/sensor-library.html#enums">Enums</a></li>
+          <li><a href="sensor/sensor-library.html#classes">Classes</a></li>
+        </ul>
+      </div> <!-- /col -->
+    </div> <!-- /row -->
+  </div> <!-- /container -->
+
+</header>
+
+<div class="container body">
+  <div class="row">
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5><a href="index.html">sensor</a></h5>
+
+    <ol>
+      <li class="section-title"><a href="index.html">Libraries</a></li>
+      <li><a href="sensor/sensor-library.html">sensor</a></li>
+    </ol>
+  </div>
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+
+    <section class="desc markdown">
+      <p>Simple library to build harper sensors.</p>
+<p>The structure of each sensor is simple, this packages, just composite together
+function that define a sensor.</p>
+    </section>
+    
+
+    <section class="summary offset-anchor" id="typedefs">
+      <h2>Typedefs</h2>
+
+      <dl class="callables">
+        <dt id="Connection" class="callable">
+          <span class="name"><a href="sensor/Connection.html">Connection</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; Stream</span>
+          </span>
+        </dt>
+        <dd>
+          <p>Function that retruns a stream with raw sensor data compliant to the
+to the passed Codec that used get from the file format to stream of strings.</p>
+        </dd>
+        <dt id="Connector" class="callable">
+          <span class="name"><a href="sensor/Connector.html">Connector</a></span><span class="signature">(<wbr><span class="parameter" id="Connector-param-identifier"><span class="type-annotation">List&lt;String&gt;</span> <span class="parameter-name">identifier</span></span>)
+            <span class="returntype parameter">&#8594; Future&lt;<a href="sensor/Connection.html">Connection</a>&gt;</span>
+          </span>
+        </dt>
+        <dd>
+          <p>Returns a <a href="sensor/Connection.html">Connection</a> to a sensor given in the list of string identifiers.</p>
+        </dd>
+        <dt id="SensorSpec" class="callable">
+          <span class="name"><a href="sensor/SensorSpec.html">SensorSpec</a></span><span class="signature">(<wbr>{<span class="parameter" id="SensorSpec-param-key"><span class="parameter-name">key</span></span>})
+            <span class="returntype parameter">&#8594; dynamic</span>
+          </span>
+        </dt>
+        <dd>
+          <p>Specific keys for a particular sensor configuration.</p>
+        </dd>
+        <dt id="SensorSpecFinder" class="callable">
+          <span class="name"><a href="sensor/SensorSpecFinder.html">SensorSpecFinder</a></span><span class="signature">(<wbr><span class="parameter" id="SensorSpecFinder-param-device"><span class="type-annotation"><a href="sensor/Device-class.html">Device</a></span> <span class="parameter-name">device</span></span>, <span class="parameter" id="SensorSpecFinder-param-sensor"><span class="type-annotation"><a href="sensor/SensorType-class.html">SensorType</a></span> <span class="parameter-name">sensor</span></span>)
+            <span class="returntype parameter">&#8594; <a href="sensor/SensorSpec.html">SensorSpec</a></span>
+          </span>
+        </dt>
+        <dd>
+          <p>Returns a sensor specification for the given <a href="sensor/SensorType-class.html">SensorType</a> on the given <a href="sensor/Device-class.html">Device</a></p>
+        </dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="properties">
+      <h2>Properties</h2>
+
+      <dl class="properties">
+        <dt id="protoMsgSensorStart" class="property">
+          <span class="name"><a href="sensor/protoMsgSensorStart.html">protoMsgSensorStart</a></span>
+          <span class="signature">&#8594; Map</span>
+        </dt>
+        <dd>
+          <p>Short hand message indicating the sensor has started.</p>
+          <div class="features">
+    read / write
+  </div>
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="functions">
+      <h2>Functions</h2>
+
+      <dl class="callables">
+        <dt id="fireBaseConnector" class="callable">
+          <span class="name"><a href="sensor/fireBaseConnector.html">fireBaseConnector</a></span><span class="signature">(<wbr><span class="parameter" id="fireBaseConnector-param-pathToDirectory"><span class="type-annotation">List&lt;String&gt;</span> <span class="parameter-name">pathToDirectory</span></span>)
+            <span class="returntype parameter">&#8594; Future&lt;<a href="sensor/Connection.html">Connection</a>&gt;</span>
+          </span>
+        </dt>
+        <dd>
+          <p>Connector for FireBase which returns a <a href="sensor/Connection.html">Connection</a> from which you can stream
+data from the passed in path.</p>
+        </dd>
+        <dt id="ioDirConnector" class="callable">
+          <span class="name"><a href="sensor/ioDirConnector.html">ioDirConnector</a></span><span class="signature">(<wbr><span class="parameter" id="ioDirConnector-param-pathToDirectory"><span class="type-annotation">List&lt;String&gt;</span> <span class="parameter-name">pathToDirectory</span></span>)
+            <span class="returntype parameter">&#8594; Future&lt;<a href="sensor/Connection.html">Connection</a>&gt;</span>
+          </span>
+        </dt>
+        <dd>
+          <p>Returns a <a href="sensor/Connection.html">Connection</a> to a File System Directory that must already exist,
+must contain files in UTF-8 encoding.</p>
+        </dd>
+        <dt id="loadSensorSpec" class="callable">
+          <span class="name"><a href="sensor/loadSensorSpec.html">loadSensorSpec</a></span><span class="signature">(<wbr><span class="parameter" id="loadSensorSpec-param-device"><span class="type-annotation"><a href="sensor/Device-class.html">Device</a></span> <span class="parameter-name">device</span></span>, <span class="parameter" id="loadSensorSpec-param-sensor"><span class="type-annotation"><a href="sensor/SensorType-class.html">SensorType</a></span> <span class="parameter-name">sensor</span></span>)
+            <span class="returntype parameter">&#8594; <a href="sensor/SensorSpec.html">SensorSpec</a></span>
+          </span>
+        </dt>
+        <dd>
+          <p>Returns the specific value for the required sensor on the request device.</p>
+        </dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="enums">
+      <h2>Enums</h2>
+
+      <dl>
+        <dt id="Device">
+          <a href="sensor/Device-class.html">Device</a>
+        </dt>
+        <dd>
+          <p>All the devices which host Sensors.
+Included here are fake test devices.</p>
+        </dd>
+        <dt id="ProtoValue">
+          <a href="sensor/ProtoValue-class.html">ProtoValue</a>
+        </dt>
+        <dd>
+          <p>The value element of a protocol message.</p>
+        </dd>
+        <dt id="SensorSignal">
+          <a href="sensor/SensorSignal-class.html">SensorSignal</a>
+        </dt>
+        <dd>
+          <p>Highest level enums for the sensor signal</p>
+        </dd>
+        <dt id="SensorType">
+          <a href="sensor/SensorType-class.html">SensorType</a>
+        </dt>
+        <dd>
+          <p>Standardized enumeration of sensor types. The types are very stable different
+instances of sensors may operate differently and have different implementations
+this list represents the current universe of known sensors.</p>
+        </dd>
+        <dt id="SignalProtocol">
+          <a href="sensor/SignalProtocol-class.html">SignalProtocol</a>
+        </dt>
+        <dd>
+          <p>SignalProtocol are used to inform the listener about sensor
+operational events. These are generic across all sensor type
+and always comprise a pair of values. The first one the key is
+is of type <a href="sensor/SignalProtocol-class.html">SignalProtocol</a> and the second the value of type <a href="sensor/ProtoValue-class.html">ProtoValue</a>.</p>
+        </dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="classes">
+      <h2>Classes</h2>
+
+      <dl>
+        <dt id="Sensor">
+          <span class="name "><a href="sensor/Sensor-class.html">Sensor</a></span>
+        </dt>
+        <dd>
+          <p>A sensor collects datums from a single source. The collected data is
+not homogeneous and necessary part of the same data dimension. It just happens
+to be from the same physical or logical sensor.
+Namespace where all the functions of a sensor are assembled.
+Takes a type of <a href="sensor/Connector.html">Connector</a> to connect data projection in path, a <code>SignalDescriptor</code>
+which describes the data projection and a SensorSignalFormat that describes
+what the array would like return on the stream that is also provided.</p>
+        </dd>
+      </dl>
+    </section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+    <h5>sensor</h5>
+    <ol>
+    
+      <li class="section-title"><a href="sensor/sensor-library.html#typedefs">Typedefs</a></li>
+      <li><a href="sensor/Connection.html">Connection</a></li>
+      <li><a href="sensor/Connector.html">Connector</a></li>
+      <li><a href="sensor/SensorSpec.html">SensorSpec</a></li>
+      <li><a href="sensor/SensorSpecFinder.html">SensorSpecFinder</a></li>
+    
+      <li class="section-title"><a href="sensor/sensor-library.html#properties">Properties</a></li>
+      <li><a href="sensor/protoMsgSensorStart.html">protoMsgSensorStart</a></li>
+    
+      <li class="section-title"><a href="sensor/sensor-library.html#functions">Functions</a></li>
+      <li><a href="sensor/fireBaseConnector.html">fireBaseConnector</a></li>
+      <li><a href="sensor/ioDirConnector.html">ioDirConnector</a></li>
+      <li><a href="sensor/loadSensorSpec.html">loadSensorSpec</a></li>
+    
+      <li class="section-title"><a href="sensor/sensor-library.html#enums">Enums</a></li>
+      <li><a href="sensor/Device-class.html">Device</a></li>
+      <li><a href="sensor/ProtoValue-class.html">ProtoValue</a></li>
+      <li><a href="sensor/SensorSignal-class.html">SensorSignal</a></li>
+      <li><a href="sensor/SensorType-class.html">SensorType</a></li>
+      <li><a href="sensor/SignalProtocol-class.html">SignalProtocol</a></li>
+    
+      <li class="section-title"><a href="sensor/sensor-library.html#classes">Classes</a></li>
+      <li><a href="sensor/Sensor-class.html">Sensor</a></li>
+    
+    </ol>
+  </div><!--/sidebar-offcanvas-right-->
+
+</div> <!-- row -->
+</div> <!-- container -->
+
+<footer>
+  <div class="container-fluid">
+    <div class="container">
+      <p class="text-center">
+        <span class="no-break">
+          sensor 0.0.3
+        </span>
+        &bull;
+        <span class="no-break">
+          <a href="https://www.dartlang.org">
+            <img src="static-assets/favicon.png" alt="Dart" title="Dart" width="16" height="16">
+          </a>
+        </span>
+        &bull;
+        <span class="copyright no-break">
+          <a href="http://creativecommons.org/licenses/by-sa/4.0/">cc license</a>
+        </span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/prettify.js"></script>
+<script src="static-assets/script.js"></script>
+<!-- Do not remove placeholder -->
+<!-- Footer Placeholder -->
+
+</body>
+
+</html>

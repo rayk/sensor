@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="made with love by dartdoc 0.9.0">
-  <meta name="description" content="sensor API docs, for the Dart programming language.">
-  <title>sensor - Dart API docs</title>
+  <meta name="description" content="API docs for the runtimeType property from the Sensor class, for the Dart programming language.">
+  <title>runtimeType property - Sensor class - sensor library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../..">
 
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:500,400italic,300,400' type='text/css'>
   <link rel="stylesheet" href="static-assets/prettify.css">
@@ -27,10 +28,14 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12 contents">
+          <button id="sidenav-left-toggle" type="button">&nbsp;</button>
           <ol class="breadcrumbs gt-separated hidden-xs">
-            <li class="self-crumb">sensor</li>
+            <li><a href="index.html">sensor</a></li>
+            <li><a href="sensor/sensor-library.html">sensor</a></li>
+            <li><a href="sensor/Sensor-class.html">Sensor</a></li>
+            <li class="self-crumb">runtimeType</li>
           </ol>
-          <div class="self-name">sensor</div>
+          <div class="self-name">runtimeType</div>
           <form class="search navbar-right" role="search">
             <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
           </form>
@@ -43,15 +48,16 @@
     <div class="row">
       <div class="col-sm-12 contents">
         <ol class="breadcrumbs gt-separated visible-xs">
+          <li><a href="index.html">sensor</a></li>
+          <li><a href="sensor/sensor-library.html">sensor</a></li>
+          <li><a href="sensor/Sensor-class.html">Sensor</a></li>
+          <li class="self-crumb">runtimeType</li>
         </ol>
         <div class="title-description">
           <h1 class="title">
-            <span class="kind">package</span> sensor
+            <span class="kind">property</span> runtimeType
           </h1>
         </div>
-        <ul class="subnav">
-          <li><a href="index.html#libraries">Libraries</a></li>
-        </ul>
       </div> <!-- /col -->
     </div> <!-- /row -->
   </div> <!-- /container -->
@@ -62,59 +68,53 @@
   <div class="row">
 
   <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
-    <h5>sensor</h5>
+    <h5><a href="index.html">sensor</a></h5>
+    <h5><a href="sensor/sensor-library.html">sensor</a></h5>
+    <h5><a href="sensor/Sensor-class.html">Sensor</a></h5>
 
     <ol>
-      <li class="section-title"><a href="index.html#libraries">Libraries</a></li>
-      <li><a href="sensor/sensor-library.html">sensor</a></li>
+    
+    
+    
+      <li class="section-title"><a href="sensor/Sensor-class.html#constructors">Constructors</a></li>
+      <li><a href="sensor/Sensor/Sensor.html">Sensor</a></li>
+    
+      <li class="section-title">
+        <a href="sensor/Sensor-class.html#instance-properties">Properties</a>
+      </li>
+      <li class="inherited"><a href="sensor/Sensor/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="sensor/Sensor/runtimeType.html">runtimeType</a></li>
+      <li><a href="sensor/Sensor/state.html">state</a></li>
+    
+      <li class="section-title inherited"><a href="sensor/Sensor-class.html#operators">Operators</a></li>
+      <li class="inherited"><a href="sensor/Sensor/operator_equals.html">operator ==</a></li>
+    
+      <li class="section-title"><a href="sensor/Sensor-class.html#instance-methods">Methods</a></li>
+      <li><a href="sensor/Sensor/kill.html">kill</a></li>
+      <li class="inherited"><a href="sensor/Sensor/noSuchMethod.html">noSuchMethod</a></li>
+      <li><a href="sensor/Sensor/pause.html">pause</a></li>
+      <li><a href="sensor/Sensor/start.html">start</a></li>
+      <li class="inherited"><a href="sensor/Sensor/toString.html">toString</a></li>
     </ol>
-  </div>
+
+  </div><!--/.sidebar-offcanvas-->
 
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
 
-      <section class="desc markdown">
-        <h1>Sensor</h1>
-<p>A sensor is pointed at a data projection, which can be any source that emitted data.</p>
-<p>The sensor connects and collects from that source. Transforms the collected data into
-a sensor signal Map and streams that to the array.</p>
-<p>Each instance of sensor normalizes certain differences in data projection, if
-the project needs to be pulled the sensor takes care of that, if it requires
-listening, the sensor takes care of that.</p>
-<p>The end result is the sensor provides a standard async stream that can be listened
-to for sensor signals.</p>
-<h2>Sensor Signal</h2>
-<p>Delivered from the sensor as a enumerated map it contains not only the core signal
-but also the meta about source frequency etc. The allows for the signals to be processed
-as a stream with the need of looking up more reference data etc.</p>
-<h2>Structurally</h2>
-<p>The sensor packages is imported into another package where the Sensor class is
-used to construct instances of sensors via the composition of predefined functions
-and enumerations.</p>
-<p>Therefore to support a new data projection it could be as simple as composing a
-new instance of sensor, of the correct connectors and mappings exist. At the opposite
-end of the scale a new data project may require a new connector, mapping and transform.</p>
-      </section>
+
+      <section id="getter">
       
-    <section class="summary" id="libraries">
-      <h2>Libraries</h2>
-      <dl>
-          <dt id="sensor">
-            <span class="name"><a href="sensor/sensor-library.html">sensor</a></span>
-          </dt>
-          <dd>
-            <p>
-              Simple library to build harper sensors.
-              <a href="sensor/sensor-library.html">&hellip;</a>
-                          </p>
-          </dd>
-      </dl>
-    </section>
+      <section class="multi-line-signature">
+        <span class="returntype">Type</span>
+        <span class="name ">runtimeType</span></section>
+      
+      <section class="desc markdown">
+  <p>A representation of the runtime type of the object.</p>
+</section>
+</section>
+
 
   </div> <!-- /.main-content -->
-
-  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
-
-  </div><!--/.sidebar-offcanvas-right-->
 
 </div> <!-- row -->
 </div> <!-- container -->
