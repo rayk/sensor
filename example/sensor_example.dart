@@ -22,8 +22,10 @@ main() async {
   Sensor gsrOnMsBand2FireBase =
       new Sensor(fbConnection, gsrSensor, sc.sink, debug: false);
 
+  List<Map> data = new List();
+
   if (gsrOnMsBand2FireBase.start()) {
-    gsrSensorReading.listen((Map res) => print(res.toString()));
+    gsrSensorReading.listen((Map res) => print(res));
   }
 
 }

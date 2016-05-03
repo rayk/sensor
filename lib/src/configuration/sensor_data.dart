@@ -34,25 +34,25 @@ const LookupMap sensorDataValues = const LookupMap(const [
 
 /// Standardized Accelerometer Data Points.
 enum Accelerometer {
-  /// Date and Time the device collected the sample.
+  /// Date and Time the device collected the sample. (13 bytes)
   datetime,
 
-  /// Acceleration X
+  /// Acceleration X (15 bytes)
   x,
 
-  /// Acceleration Y
+  /// Acceleration Y (15 bytes)
   y,
 
-  /// Acceleration Z
+  /// Acceleration Z (15 bytes)
   z,
 
-  /// The units used to measure acceleration
+  /// The units used to measure acceleration (4 bytes)
   units,
 
-  /// Frequency at which this being sampled.
+  /// Frequency at which this being sampled.(4 bytes)
   frequency,
 
-  /// Unit scale of the frequency.
+  /// Unit scale of the frequency. (4 bytes)
   scale,
 }
 
@@ -64,208 +64,208 @@ enum Altimeter {
 
 /// Standardized Barometer Data Points
 enum Barometer {
-  /// Date and Time the device collected the sample.
+  /// Date and Time the device collected the sample. (13 bytes)
   datetime,
 
-  /// Air pressure value
+  /// Air pressure value (18 bytes)
   pressure,
 
-  /// The units used to measure the resistance.
+  /// The units used to measure the resistance. (4 bytes)
   units,
 
-  /// Frequency at which this being sampled.
+  /// Frequency at which this being sampled. (4 bytes)
   frequency,
 
-  /// Unit scale of the frequency.
+  /// Unit scale of the frequency.(4 bytes)
   scale,
 }
 
 /// Standardized Barometer Data Points.
 enum Contact {
-  /// Date and Time the device collected the sample.
+  /// Date and Time the device collected the sample.(13 bytes)
   datetime,
 
-  /// Indication if there contact with the device.
+  /// Indication if there contact with the device. (10 Bytes)
   contact,
 
-  /// The units used to measure the resistance.
+  /// The units used to measure the resistance.(4 bytes)
   units,
 
-  /// Frequency at which this being sampled.
+  /// Frequency at which this being sampled.(4 bytes)
   frequency,
 
-  /// Unit scale of the frequency.
+  /// Unit scale of the frequency.(4 bytes)
   scale,
 }
 
 /// Standardized Gyroscope
 enum Gyroscope {
-  /// Date and Time the device collected the sample.
+  /// Date and Time the device collected the sample. (13 bytes)
   datetime,
 
-  /// Acceleration X
+  /// Acceleration X (18 bytes)
   accX,
 
-  /// Acceleration Y
+  /// Acceleration Y (18 bytes)
   accY,
 
-  /// Acceleration Z
+  /// Acceleration Z (18 bytes)
   accZ,
 
-  /// Angular Velocity X
+  /// Angular Velocity X (22 bytes)
   angX,
 
-  /// Angular Velocity Y
+  /// Angular Velocity Y (22 bytes)
   angY,
 
-  /// Angular Velocity Z
+  /// Angular Velocity Z (22 bytes)
   angZ,
 
-  /// The units used to measure the resistance.
+  /// The units used to measure the resistance. (4 bytes)
   units,
 
-  /// Frequency at which this being sampled.
+  /// Frequency at which this being sampled. (4 bytes)
   frequency,
 
-  /// Unit scale of the frequency.
+  /// Unit scale of the frequency. (4 bytes)
   scale,
 }
 
 /// Standardized Distance Data Points.
 enum Distance {
-  /// Date and Time the device collected the sample.
+  /// Date and Time the device collected the sample.(13 bytes)
   datetime,
 
-  /// Motion Type
+  /// Motion Type (10 bytes)
   motion,
 
-  /// Pace
+  /// Pace (7 bytes)
   pace,
 
-  /// Speed
+  /// Speed  (7 bytes)
   speed,
 
-  /// Distance Traveled
+  /// Distance Traveled (10 bytes)
   distance,
 
-  /// Pace Unit as in how they are measured
+  /// Pace Unit as in how they are measured (4 bytes)
   units,
 
-  /// Frequency at which this being sampled.
+  /// Frequency at which this being sampled. (4 bytes)
   frequency,
 
-  /// Unit scale of the frequency.
+  /// Unit scale of the frequency. (4 bytes)
   scale,
 }
 
 /// Standardized Skin Temperature Data Point.
 enum ThermometerSkin {
-  /// Date and Time the device collected the sample.
+  /// Date and Time the device collected the sample. (13 bytes)
   datetime,
 
-  /// Temperature
+  /// Temperature (18 bytes)
   value,
 
-  /// The units used to measure the resistance.
+  /// The units used to measure the resistance.(4 bytes)
   units,
 
-  /// Frequency at which this being sampled.
+  /// Frequency at which this being sampled.(4 bytes)
   frequency,
 
-  /// Unit scale of the frequency.
+  /// Unit scale of the frequency.(4 bytes)
   scale,
 }
 
 /// Standardized Heart Rate Data Points.
 enum Heart {
-  /// Date and Time the device collected the sample.
+  /// Date and Time the device collected the sample. (13 bytes)
   datetime,
 
-  /// Standard heart rate.
+  /// Standard heart rate. (4 bytes)
   rate,
 
-  /// Quality of the signal.
+  /// Quality of the signal. (7 bytes)
   quality,
 
-  /// The units used to measure the resistance.
+  /// The units used to measure the resistance.(4 bytes)
   units,
 
-  /// Frequency at which this being sampled.
+  /// Frequency at which this being sampled.(4 bytes)
   frequency,
 
-  /// Unit scale of the frequency.
+  /// Unit scale of the frequency.(4 bytes)
   scale,
 }
 
 /// Standardized Light Measure Data Points.
 enum Light {
-  /// Date and Time the device collected the sample.
+  /// Date and Time the device collected the sample.(13 bytes)
   datetime,
 
-  /// Light value.
+  /// Light value. (3 bytes)
   value,
 
-  /// The units used to measure the resistance.
+  /// The units used to measure the resistance.(4 bytes)
   units,
 
-  /// Frequency at which this being sampled.
+  /// Frequency at which this being sampled.(4 bytes)
   frequency,
 
-  /// Unit scale of the frequency.
+  /// Unit scale of the frequency.(4 bytes)
   scale,
 }
 
 /// Standardized Heart Beat Interval Data Points
 enum Interval {
-  /// Date and Time the device collected the sample.
+  /// Date and Time the device collected the sample. (13 bytes)
   datetime,
 
-  /// Heart Rate Interval.
+  /// Heart Rate Interval. (8 bytes)
   value,
 
-  /// The units used to measure the resistance.
+  /// The units used to measure the resistance.(4 bytes)
   units,
 
-  /// Frequency at which this being sampled.
+  /// Frequency at which this being sampled.(4 bytes)
   frequency,
 
-  /// Unit scale of the frequency.
+  /// Unit scale of the frequency.(4 bytes)
   scale,
 }
 
 /// Standardized Galvanic Skin Response Required Data Points.
 enum Gsr {
-  /// Data and Time the device collected the sample.
+  /// Data and Time the device collected the sample.(13 bytes)
   datetime,
 
-  /// Value of the GSR reading.
+  /// Value of the GSR reading. (6 bytes)
   resistance,
 
-  /// The units used to measure the resistance.
+  /// The units used to measure the resistance.(4 bytes)
   units,
 
-  /// Frequency at which this being sampled.
+  /// Frequency at which this being sampled.(4 bytes)
   frequency,
 
-  /// Unit scale of the frequency.
+  /// Unit scale of the frequency.(4 bytes)
   scale,
 }
 
 /// Standardized Ultraviolet Light Data Point.
 enum Uv {
-  /// Date and Time the device collected the sample.
+  /// Date and Time the device collected the sample.(13 bytes)
   datetime,
 
-  /// Heart Rate Interval.
+  /// Uv Exposure. (2 bytes)
   value,
 
-  /// The units used to measure the resistance.
+  /// The units used to measure the resistance. (4 bytes)
   units,
 
-  /// Frequency at which this being sampled.
+  /// Frequency at which this being sampled.(4 bytes)
   frequency,
 
-  /// Unit scale of the frequency.
+  /// Unit scale of the frequency.(4 bytes)
   scale,
 }
 
