@@ -1,5 +1,5 @@
 @TestOn('vm')
-@Timeout(const Duration(seconds: 10))
+@Timeout(const Duration(seconds: 30))
 library unit_test_filio;
 
 import 'dart:async';
@@ -12,8 +12,8 @@ void main(){
 
     test('Should connection to file back',() async {
 
-      List connectionString = ["https://banddata.firebaseio.com", 'JL', 'gsr', 'XuHBWOngUKU0w7yKiueK3SqMd5bm6qhUumi70mlr'];
-      Connection fbConnection = await fireBaseConnector(connectionString);
+      List connectionString = ["https://banddata.firebaseio.com", 'JL', 'contact', 'XuHBWOngUKU0w7yKiueK3SqMd5bm6qhUumi70mlr'];
+      Connection fbConnection = await fireBaseConnector(connectionString, speedUp: 10000);
       expect(fbConnection is Connection, isTrue);
 
       Stream result = fbConnection();
@@ -24,7 +24,7 @@ void main(){
 
         print(value);
 
-      }, max: 50000));
+      }, count: 41));
     });
 
 

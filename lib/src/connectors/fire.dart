@@ -3,7 +3,7 @@ part of connectors;
 
 /// Connector for FireBase which returns a [Connection] from which you can stream
 /// data from the passed in path.
-Future<Connection> fireBaseConnector(List<String> pathToDirectory) async {
+Future<Connection> fireBaseConnector(List<String> pathToDirectory, {int speedUp}) async {
   p.Context ctx = new p.Context(style: p.Style.url);
   final String root = pathToDirectory[0];
   final String directory = pathToDirectory[1];
@@ -14,17 +14,29 @@ Future<Connection> fireBaseConnector(List<String> pathToDirectory) async {
   final StreamController sc = new StreamController();
 
   Stream connection() {
-    fb.child(source).get().then((DataSnapshot snap){
+    fb.child(source).get().then((DataSnapshot snap) {
       Map sig = snap.val;
       Iterable keys = sig.keys;
-      DateTime dt2;
-      for (var key in keys){
+      DateTime currentSignalDateTime;
+      DateTime previousSignDateTime;
+      Duration actualDelay;
+      Duration streamDelay;
+      int speedUpRate = speedUp;
+
+      for (var key in keys) {
         int t1 = int.parse(key);
-         DateTime dt1 = new DateTime.fromMillisecondsSinceEpoch(t1);
-        Duration  df = dt2?.difference(new DateTime.fromMillisecondsSinceEpoch(t1));
-        Duration dw = new Duration(milliseconds: 0);
-        new Future.delayed(df??dw, ()=> sc.sink.add(sig[key]));
-        dt2 = new DateTime.fromMillisecondsSinceEpoch(t1);
+       currentSignalDateTime = new DateTime.fromMillisecondsSinceEpoch(t1);
+
+        if(previousSignDateTime == null){
+          sc.sink.add(sig[key]);
+          previousSignDateTime = new DateTime.fromMillisecondsSinceEpoch(t1);
+        } else {
+          actualDelay = currentSignalDateTime.difference(previousSignDateTime);
+          int d = (actualDelay.inMilliseconds / speedUpRate).toInt();
+          streamDelay = new Duration(milliseconds: d);
+          new Future.delayed(streamDelay, ()=> sc.add(sig[key]));
+          previousSignDateTime = new DateTime.fromMillisecondsSinceEpoch(t1);
+        }
       }
     });
 
