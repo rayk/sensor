@@ -50,6 +50,7 @@ const LookupMap accelOnMsBand2ViaFire = const LookupMap(const [
   8,
   Accelerometer.scale,
   SiUnits.hertz,
+  Extract.strategy,
   signalFromMap,
 ]);
 
@@ -70,6 +71,8 @@ const LookupMap baroOnMsBand2ViaFire = const LookupMap(const [
   1,
   Barometer.scale,
   SiUnits.hertz,
+  Extract.strategy,
+  signalFromMap,
 ]);
 
 const LookupMap contactOnMsBand2ViaFire = const LookupMap(const [
@@ -83,6 +86,8 @@ const LookupMap contactOnMsBand2ViaFire = const LookupMap(const [
   0,
   Contact.scale,
   SiUnits.binary,
+  Extract.strategy,
+  signalFromMap,
 ]);
 
 const LookupMap distanceOnMsBand2ViaFire = const LookupMap(const [
@@ -102,6 +107,8 @@ const LookupMap distanceOnMsBand2ViaFire = const LookupMap(const [
   1,
   Distance.scale,
   SiUnits.hertz,
+  Extract.strategy,
+  signalFromMap,
 ]);
 
 const LookupMap gyroOnMsBand2ViaFire = const LookupMap(const [
@@ -125,6 +132,8 @@ const LookupMap gyroOnMsBand2ViaFire = const LookupMap(const [
   8,
   Gyroscope.units,
   SiUnits.degreesPerSec,
+  Extract.strategy,
+  signalFromMap,
 ]);
 
 const LookupMap heartOnMsBand2ViaFire = const LookupMap(const [
@@ -139,6 +148,8 @@ const LookupMap heartOnMsBand2ViaFire = const LookupMap(const [
   Heart.frequency,
   1,
   SiUnits.hertz,
+  Extract.strategy,
+  signalFromMap,
 ]);
 
 const LookupMap lightOnMsBand2ViaFire = const LookupMap(const [
@@ -152,6 +163,8 @@ const LookupMap lightOnMsBand2ViaFire = const LookupMap(const [
   2,
   Light.scale,
   SiUnits.hertz,
+  Extract.strategy,
+  signalFromMap,
 ]);
 
 const LookupMap intervalOnMsBand2ViaFire = const LookupMap(const [
@@ -165,6 +178,8 @@ const LookupMap intervalOnMsBand2ViaFire = const LookupMap(const [
   0,
   Interval.scale,
   0,
+  Extract.strategy,
+  signalFromMap,
 ]);
 
 const LookupMap skinOnMsBand2ViaFire = const LookupMap(const [
@@ -178,6 +193,8 @@ const LookupMap skinOnMsBand2ViaFire = const LookupMap(const [
   1,
   ThermometerSkin.scale,
   SiUnits.hertz,
+  Extract.strategy,
+  signalFromMap,
 ]);
 
 const LookupMap uvOnMsBand2ViaFire = const LookupMap(const [
@@ -191,4 +208,6 @@ const LookupMap uvOnMsBand2ViaFire = const LookupMap(const [
   1,
   Uv.scale,
   SiUnits.hertz,
+  Extract.strategy,
+  signalFromMap,
 ]);
