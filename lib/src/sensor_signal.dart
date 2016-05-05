@@ -29,6 +29,10 @@ enum SignalProtocol{
   priority,
   /// Subject of the message
   subject,
+  /// Source Sensor
+  sensor,
+  /// Source Device
+  device,
 }
 
 /// The value element of a protocol message.
